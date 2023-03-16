@@ -8,6 +8,8 @@
 `conda activate env_name`
 - Create Python environment\
 `pip install -r .\path_to_requirements\requirements.txt`
+- Run *.py in Pycharm with Interpreter Option:\
+`-m streamlit run`
 
 ## :rocket: Demo 1
 - Set app layout

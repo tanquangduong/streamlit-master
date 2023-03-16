@@ -37,8 +37,7 @@ with container:
 
             # Get dataset (*.csv) path from selection box
             dataset_path = st.selectbox(
-                "Select dataset",
-                glob(".\datasets\*.csv")
+                "Select dataset", glob(".\datasets\*.csv")
             )
             # Load dataframe from dataset path using pandas
             df = pd.read_csv(dataset_path)
@@ -79,6 +78,3 @@ with container:
                 df_missing_count = pd.DataFrame(df.isnull().sum(), columns=['Count'])
                 df_missing_count.index.name = 'Columns'
                 st.dataframe(df_missing_count)
-
-
-
