@@ -25,3 +25,11 @@
 - Show dynamically basic info of dataframe: dataset name, extension, 
 number of columns, number of row
 - Show button, add function when button is triggered 
+
+## :rocket: Demo 4
+- Slidebar, dynamically display number of rows of dataframe
+- Show basic statistic info for each chosen column, either numerical or non-numerical dtypes
+
+## :rocket: Demo 5
+- Different options for data visualization, with matplotlib, seaborn
+- Display plot with st.pyplot or html with zoom in-out features
