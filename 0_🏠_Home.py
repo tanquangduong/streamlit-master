@@ -22,7 +22,7 @@ with col3:
 with col4:
     st.write("")
 with col5:
-    st.image(your_logo, width=300)
+    st.image(your_logo, width=150)
 
 st.write("# Welcome to MyApp! 👋")
 

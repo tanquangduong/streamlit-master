@@ -3,8 +3,6 @@ import pandas as pd
 import numpy as np
 import streamlit as st
 from pathlib import Path
-from flowqast.preprocessing.preprocess import Preprocessing
-from flowqast.preprocessing.utils import show_numeric_feature_info, show_object_feature_info
 import hydralit_components as hc
 from hydralit_components import HyLoader, Loaders
 from PIL import Image
@@ -36,7 +34,7 @@ menu_data = [
      'icon': "🔎",
      'label': "Analysis"},
     {'id': 'tab2',
-     'icon': "📃",
+     'icon': "📈",
      'label': "DataViz"}
 ]
 
