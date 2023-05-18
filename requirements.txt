@@ -5,3 +5,4 @@ numpy
 seaborn
 Pillow
 mpld3
+hydralit_components
