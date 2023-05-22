@@ -1,11 +1,16 @@
 import os
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
 import streamlit as st
+from PIL import Image
+from glob import glob
 from pathlib import Path
+from PIL import Image
 import hydralit_components as hc
 from hydralit_components import HyLoader, Loaders
 from PIL import Image
+import statsmodels.api as sm
 
 # make it look nice from the start
 st.set_page_config(
@@ -30,12 +35,12 @@ with col5:
 
 # specify the primary menu definition
 menu_data = [
-    {'id': 'tab1',
-     'icon': "🔎",
-     'label': "Analysis"},
-    {'id': 'tab2',
+    {'id': 'visualization',
      'icon': "📈",
-     'label': "DataViz"}
+     'label': "Visualization"},
+    {'id': 'transformation',
+     'icon': "〽️",
+     'label': "Time Series Transformation"},
 ]
 
 over_theme = {
@@ -53,13 +58,30 @@ menu_id = hc.nav_bar(
 )
 
 with HyLoader("", loader_name=Loaders.pulse_bars):
-    if menu_id == 'tab1':
+    if menu_id == "visualization":
         if 'dataframe' not in st.session_state:
-            st.write("Import dataset first!")
+            st.write("Please import Time-series dataset first.")
         else:
-            st.button('Do something')
-    elif menu_id == "tab2":
+            loaded_dataframe = st.session_state.dataframe
+
+            # for time feature
+            date = st.selectbox( 'Please choose the timestamp column?', (loaded_dataframe.columns))   
+            if 'date' not in st.session_state:
+                st.session_state['date'] = date
+            
+            st.write(" ")
+            multi_features = st.multiselect(
+                'Please choose one or more features?',
+                (loaded_dataframe.columns))
+            
+            
+            
+            if st.button('Visualaze'):
+                st.line_chart(loaded_dataframe, x = date, y = multi_features)
+                st.bar_chart(loaded_dataframe, x=date)
+
+    elif menu_id == "transformation":
         if 'dataframe' not in st.session_state:
-            st.write("Import dataset first!")
+            st.write('Please import Time-series dataset first.')
         else:
             st.button('Do something')
